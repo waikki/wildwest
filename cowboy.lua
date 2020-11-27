@@ -8,7 +8,7 @@ function Cowboy:new()
     self.x = 960
     self.y = 540
 
-    self.speed = 100
+    self.speed = 200
     self.walking = false
 
     self.width = self.image:getWidth()
