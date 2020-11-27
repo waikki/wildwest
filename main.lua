@@ -15,6 +15,8 @@ function love.update(dt)
 end
 
 function love.draw()
+
+    -- camera follows player
     love.graphics.push()
     love.graphics.translate(-cowboy.x + screenWidth / 2, -cowboy.y + screenHeigth / 2)
     level:draw()
@@ -22,18 +24,4 @@ function love.draw()
     love.graphics.pop()
     -- draw gui here
 
-
-
-
-
-
-
-    --love.graphics.push()
-    --love.graphics.translate(-player.x+(half width of your window), -player.y+(half height of your window))
-    -- draw map here
-    --love.graphics.pop()
-    -- draw gui here
-    
-
-    
 end
