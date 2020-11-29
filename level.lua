@@ -2,7 +2,7 @@ Level = Object:extend()
 
 function Level:new()
     love.graphics.setBackgroundColor(0.8, 0.7, 0.47)
-    background = love.graphics.newImage("bg.png")
+    background = love.graphics.newImage("graphics/bg.png")
 end
 
 function Level:draw()  

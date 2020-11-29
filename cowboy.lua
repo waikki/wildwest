@@ -1,7 +1,7 @@
 Cowboy = Object:extend()
 
 function Cowboy:new()
-    self.image = love.graphics.newImage("cowboy.png")
+    self.image = love.graphics.newImage("graphics/cowboy.png")
 
     self.direction = 1 -- 1 = right, 2 = left, 3 = up, 4 = down
     self.state = "idle"
@@ -22,16 +22,16 @@ function Cowboy:new()
 
     self.frame = 1
     self.walkFramesLeft = {}
-    table.insert(self.walkFramesLeft, love.graphics.newImage("cowboy.png"))
-    table.insert(self.walkFramesLeft, love.graphics.newImage("cowboy_walk_left_2.png"))
+    table.insert(self.walkFramesLeft, love.graphics.newImage("graphics/cowboy.png"))
+    table.insert(self.walkFramesLeft, love.graphics.newImage("graphics/cowboy_walk_left_2.png"))
 
     self.walkFramesRight = {}
-    table.insert(self.walkFramesRight, love.graphics.newImage("cowboy_walk_right_1.png"))
-    table.insert(self.walkFramesRight, love.graphics.newImage("cowboy_walk_right_2.png"))
+    table.insert(self.walkFramesRight, love.graphics.newImage("graphics/cowboy_walk_right_1.png"))
+    table.insert(self.walkFramesRight, love.graphics.newImage("graphics/cowboy_walk_right_2.png"))
 
     self.walkFramesUp = {}
-    table.insert(self.walkFramesUp, love.graphics.newImage("cowboy_walk_up_1.png"))
-    table.insert(self.walkFramesUp, love.graphics.newImage("cowboy_walk_up_2.png"))
+    table.insert(self.walkFramesUp, love.graphics.newImage("graphics/cowboy_walk_up_1.png"))
+    table.insert(self.walkFramesUp, love.graphics.newImage("graphics/cowboy_walk_up_2.png"))
 end
 
 function Cowboy:update(dt)
@@ -103,6 +103,4 @@ function Cowboy:draw()
     if self.direction == 4 then
         love.graphics.draw(self.walkFramesLeft[math.floor(self.frame)], self.x - self.width / 2, self.y - self.height / 2)
     end
-
-    print(self.direction)
 end
