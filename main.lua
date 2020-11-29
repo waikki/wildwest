@@ -10,10 +10,14 @@ function love.load()
 
     screenWidth = love.graphics.getWidth()
     screenHeigth = love.graphics.getHeight()
+
+    gameMode = "game"
 end
 
 function love.update(dt)
-    cowboy:update(dt)
+    if gameMode == "game" then
+        cowboy:update(dt)
+    end
 end
 
 function love.draw()
@@ -29,11 +33,22 @@ function love.draw()
 end
 
 function love.keypressed(key)
+    if gameMode == "inventory" then
+        inventory:keypressed(key)
+    end
+
     if key == "x" then
         print("This is a nice tree")
     end
 
     if key == "i" then
-        inventory:show()
+        if gameMode == "inventory" then
+            gameMode = "game"
+            inventory:toggleVisibility()
+        elseif gameMode == "game" then
+            gameMode = "inventory"
+            inventory:toggleVisibility()
+        end
     end
+
 end
