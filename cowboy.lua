@@ -40,45 +40,23 @@ function Cowboy:update(dt)
         self.frame = 1 
     end
 
-
     --controls
     if love.keyboard.isDown(self.rightButton) then          -- walk right
-        walkRight(dt)
+        self.direction = 1
+        self.x = self.x + self.speed * dt
     elseif love.keyboard.isDown(self.leftButton) then       -- walk left
-        walkLeft(dt)
+        self.direction = 2 
+        self.x = self.x - self.speed * dt
     elseif love.keyboard.isDown(self.upButton) then         -- walk up
-        walkUp(dt)
+        self.direction = 3
+        self.y = self.y - self.speed * dt
     elseif love.keyboard.isDown(self.downButton) then       -- walk down
-        walkDown(dt)
+        self.direction = 4 
+        self.y = self.y + self.speed * dt
     else self.direction = 0
     end
 
     if love.keyboard.isDown(self.shootButton) then          -- shoot
-        shoot(dt)
-    end
-
-    --movement
-    function walkRight(dt)                  -- walk right
-        self.direction = 1
-        self.x = self.x + self.speed * dt
-    end 
-  
-    function walkLeft(dt)                   -- walk left
-        self.direction = 2 
-        self.x = self.x - self.speed * dt
-    end 
-
-    function walkUp(dt)                     -- walk up                                     
-        self.direction = 3
-        self.y = self.y - self.speed * dt
-    end 
-
-    function walkDown(dt)                   -- walk down
-        self.direction = 4 
-        self.y = self.y + self.speed * dt
-    end 
-
-    function shoot(dt)                      -- shoot
         print("pew pew")
     end
 end
