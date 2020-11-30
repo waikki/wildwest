@@ -51,4 +51,8 @@ function love.keypressed(key)
         end
     end
 
+    if key == "a" and gameMode == "game" then
+        inventory:add()
+    end
+
 end

@@ -34,24 +34,42 @@ function Inventory:draw()
         local rectangleY = self.y + self.borderHeight + (self.currentGridRow - 1) * (self.slotSize + self.gridSpacing)
         love.graphics.rectangle("line", rectangleX, rectangleY, self.slotSize, self.slotSize)
     end
+
+    
+
+    --for i = 1, itemo in ipairs(self.inventory) do
+    --    print(i, itemo)
+    --end
+   -- love.graphics.draw(self.inventory[i][j], rectangleX, rectangleY)
 end
 
 function Inventory:toggleVisibility()
     self.visible = not self.visible
 end
 
-function Inventory:isInsideGrid(x, y)
-    --if self.currentGridColumn > 1 and 
-    --self.currentGridColumn < self.gridColumns and 
-    --self.currentGridRow > 1 and
-    --self.currentGridRow < self.gridRows then
-    --    return true
-    --else return false
-    --end
+function Inventory:isInsideGrid()           -- how to use this???
+    if self.currentGridColumn > 1 and 
+    self.currentGridColumn < self.gridColumns and 
+    self.currentGridRow > 1 and
+    self.currentGridRow < self.gridRows then
+        return true
+    else return false
+    end
 end
 
+function Inventory:add()
+    --table.insert(self.inventory, inventoryItem)
+    print("added new thing to inventory!")
+    table.insert(self.inventory, "item!")
+    print(#self.inventory)
+end
+
+--function Inventory:remove(x, y)
+    --
+--end
+
 function Inventory:keypressed(key)
-    if key == "left" and self.currentGridColumn > 1 then
+    if key == "left" and  self.currentGridColumn > 1 then
         self.currentGridColumn = self.currentGridColumn - 1
     elseif key == "right" and self.currentGridColumn < self.gridColumns then     
         self.currentGridColumn = self.currentGridColumn + 1
@@ -59,5 +77,9 @@ function Inventory:keypressed(key)
         self.currentGridRow = self.currentGridRow - 1
     elseif key == "down" and self.currentGridRow < self.gridRows then       
         self.currentGridRow = self.currentGridRow + 1
+    end
+
+    if key == enter then
+        -- use and combine options
     end
 end
